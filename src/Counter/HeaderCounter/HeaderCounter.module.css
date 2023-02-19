@@ -1,0 +1,11 @@
+.red {
+    color: red;
+    font-size: 180px;
+}
+.info {
+    font-size: 22px;
+}
+.incorrect {
+    color: red;
+    font-size: 22px;
+}

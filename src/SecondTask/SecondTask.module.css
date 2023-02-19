@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.lastMessageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.red {
+    color: red;
+}

@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: darkslategrey;
+  height: 100vh;
+}
+
+.App > div {
+  margin-right: 50px;
+}

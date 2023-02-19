@@ -1,0 +1,36 @@
+.counterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: aquamarine 2px solid;
+    border-radius: 5px;
+    padding: 20px;
+}
+.headerCounter {
+    background-color: aquamarine;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150px;
+    font-weight: 700;
+    color: darkslategrey;
+}
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+    width: 260px;
+    padding: 20px;
+}
+.container {
+    display: flex;
+    gap: 40px;
+}

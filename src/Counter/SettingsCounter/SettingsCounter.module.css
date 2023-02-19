@@ -1,0 +1,41 @@
+.settingsContainer {
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+}
+.settingsTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+    width: 300px;
+    height: 190px;
+}
+.settingWrapperInner {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.maxValueDiv {
+    display: flex;
+    justify-content: space-around;
+}
+.startValueDiv {
+    display: flex;
+    justify-content: space-around;
+}
+.settingsSpan {
+    color: aquamarine;
+    font-weight: bold;
+    font-size: 18px;
+}
+.settingsBottom {
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}

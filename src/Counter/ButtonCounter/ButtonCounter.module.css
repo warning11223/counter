@@ -1,0 +1,17 @@
+.btn {
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background: aquamarine;
+    color: darkslategrey;
+    font-size: 35px;
+    font-weight: bold;
+    transition: all .1s linear;
+}
+.btn:disabled {
+    opacity: 0.3;
+}
+.btn:active {
+    background: transparent;
+    color: aquamarine;
+}

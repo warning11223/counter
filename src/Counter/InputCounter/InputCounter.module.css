@@ -1,0 +1,19 @@
+.settingsInput {
+    outline: none;
+    color: darkslategrey;
+    font-size: 15px;
+    width: 120px;
+
+    transition: all .2s linear;
+}
+.settingsInput:focus {
+    border: 2px solid aquamarine;
+    border-radius: 2px;
+}
+.settingsInputError {
+    border: 2px solid red;
+    background: rgba(255, 0, 0, 0.3);
+    width: 120px;
+    outline: none;
+    color: black;
+}
