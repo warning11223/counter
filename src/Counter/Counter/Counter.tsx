@@ -1,20 +1,36 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import HeaderCounter from '../HeaderCounter/HeaderCounter';
 import ButtonCounter from '../ButtonCounter/ButtonCounter';
 import SettingsCounter from '../SettingsCounter/SettingsCounter';
 
 import s from './Counter.module.css'
+import {InitialCounterStateType} from '../../redux/reducers/counterReducer';
 
-const Counter = () => {
-    const [maxValue, setMaxValue] = useState(4)
-    const [minValue, setMinValue] = useState(0)
-    const [counter, setCounter] = useState(0)
-    const [info, setInfo] = useState('')
-    const [error, setError] = useState(false)
-    const [visibleSettings, setVisibleSettings] = useState(false)
+type CounterProps = {
+    state: InitialCounterStateType
+    setMaxValue: (maxValue: number) => void
+    setMinValue: (minValue: number) => void
+    setCounter: (value: number) => void
+    setInfo: (info: string) => void
+    setError: (error: boolean) => void
+    setVisibleSettings: (value: boolean) => void
+    incrementCounter: () => void
+    decrementCounter: (value: number) => void
+}
 
-    useEffect(() => {
+const Counter: React.FC<CounterProps> = ({
+                                             state,
+                                             setMinValue,
+                                             setVisibleSettings,
+                                             setCounter,
+                                             setError,
+                                             setMaxValue,
+                                             setInfo,
+                                             incrementCounter,
+                                             decrementCounter
+                                         }) => {
+    /*useEffect(() => {
         const max = localStorage.getItem('maxValue');
         const start = localStorage.getItem('startValue');
 
@@ -28,59 +44,59 @@ const Counter = () => {
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
-        localStorage.setItem('startValue', JSON.stringify(minValue))
-    }, [maxValue, minValue]);
+        localStorage.setItem('maxValue', JSON.stringify(state.maxValue))
+        localStorage.setItem('startValue', JSON.stringify(state.minValue))
+    }, [state.maxValue, state.minValue]);*/
 
     const incrementBtn = () => {
-        setCounter(counter => counter + 1)
+        incrementCounter();
     }
     const decrementBtn = () => {
-        setCounter(minValue)
+        decrementCounter(state.minValue);
     }
     const setHandler = () => {
-        setVisibleSettings(true)
+        setVisibleSettings(true);
     }
 
     return (
         <div className={s.container}>
             <SettingsCounter
-                maxValue={maxValue}
-                minValue={minValue}
+                maxValue={state.maxValue}
+                minValue={state.minValue}
                 setMaxValue={setMaxValue}
                 setMinValue={setMinValue}
                 setInfo={setInfo}
                 setError={setError}
                 setCounter={setCounter}
-                error={error}
-                visibleSettings={visibleSettings}
+                error={state.error}
+                visibleSettings={state.visibleSettings}
                 setVisibleSettings={setVisibleSettings}
             />
 
-            <div className={s.counterContainer} style={{display: `${visibleSettings ? 'none' : 'flex'}`}}>
+            <div className={s.counterContainer} style={{display: `${state.visibleSettings ? 'none' : 'flex'}`}}>
                 <div className={s.headerCounter}>
                     <HeaderCounter
-                        info={info}
-                        minValue={minValue}
-                        maxValue={maxValue}
-                        number={counter}
-                        error={error}
+                        info={state.info}
+                        minValue={state.minValue}
+                        maxValue={state.maxValue}
+                        number={state.counter}
+                        error={state.error}
                     />
                 </div>
                 <div className={s.btnContainer}>
                     <ButtonCounter
-                        maxValue={maxValue}
-                        minValue={minValue}
-                        counter={counter}
+                        maxValue={state.maxValue}
+                        minValue={state.minValue}
+                        counter={state.counter}
                         callback={incrementBtn}
-                        info={info}
+                        info={state.info}
                     >inc</ButtonCounter>
                     <ButtonCounter
-                        counter={counter}
+                        counter={state.counter}
                         callback={decrementBtn}
-                        minValue={minValue}
-                        maxValue={maxValue}
-                        info={info}
+                        minValue={state.minValue}
+                        maxValue={state.maxValue}
+                        info={state.info}
                     >reset</ButtonCounter>
                     <ButtonCounter callback={setHandler}>set</ButtonCounter>
                 </div>
